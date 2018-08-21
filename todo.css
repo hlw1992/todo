@@ -1,0 +1,101 @@
+*{margin: 0;padding: 0}
+ul,ol,li{list-style: none;}
+#container{min-width: 920px;}
+#header{
+    background-color: lightcoral;
+    height: 3rem;
+    width: 100%;
+    line-height: 3rem;
+}
+#header h2,#addList,#showList,#Mission{
+    margin: 0 auto;
+    width:60%;
+}
+#addList{
+    padding: 0.5em;
+}
+#addList input{
+    margin-top:0.5em; 
+}
+#addList input{
+    width: 100%;
+    height:2em;
+}
+#showList{
+    /* 清除浮动 */
+    overflow: hidden;
+    height: 3em;
+    /* border: 1px solid black; */
+}
+#showList p{
+    width: 50%;
+    float: left;
+    line-height: 3em;
+    font-weight: bold;
+}
+/* #showList div{
+    width: 50%;
+    float: right;
+    height: 2.5em;
+    line-height: 2.5em;
+}
+#showList div a{
+    margin: 0.2em;
+    float: left;
+    width: 30%;
+    text-align: center;
+    cursor: pointer;
+    color: gray;
+} */
+.choose{
+    border: 1px solid lightcoral;
+    color:lightcoral !important;
+}
+.completed{
+    color:gray;
+}
+.completed label{
+    text-decoration: line-through;
+}
+.lists{
+    height: 2em;
+    overflow: hidden;
+    background: lightcyan;
+    margin-top: 5px;
+    padding-top:5px;
+}
+.bigCKB{
+    width:2em;
+    height: 2em;
+    vertical-align:middle;
+}
+.lab{
+    display: inline-block;
+    vertical-align:middle;
+    min-width: 75%;
+}
+.destroy{
+    float: right;
+    font-weight: bold;
+    width: 2em;
+    height: 2em;
+    vertical-align:middle;
+}
+.delAll{
+    margin-top: 10px;
+    height: 2em;
+    line-height: 2em;
+}
+/* 双击编辑时,输入框显示 */
+.editing .editIpt{
+    display: inline-block;
+    width: 99%;
+    height: 2em;
+}
+/* 输入框, checkbox, label, button隐藏*/
+.editIpt,
+.editing input[type=checkbox],
+.editing label,
+.editing button{
+    display: none;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" type="text/css" href="todo.css" /> 
+        <!-- <script src="../../vueBase/vue.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src='todo.js' defer></script>
+
+</head>
+<body>
+    <div id="container">
+        <div id='header'>
+            <h2 style='color: white;'>TODO LIST</h2>
+        </div>
+
+        <div id="addList">
+            <h3>添加任务 : </h3>
+            <!-- 增 -->
+            <input type="text" 
+            placeholder="  例如: 去超市买咖啡        提示: 按回车即可添加任务, 双击修改任务"
+            @keyup="addTodo"
+            >
+        </div>
+
+        <div id="showList" v-show='list.length'>
+            <!-- 显示未完成任务个数(isChecked属性是false的) -->
+            <p>{{noCheckedLength}} 个任务 未完成</p>
+            <button @click="deleteAll()" class="delAll">清除全部</button>
+            <!-- <div>
+                <a class='choose' href="#all">所有任务</a>
+                <a href="#unfinished">未完成</a>
+                <a href="#finished">已完成</a>
+            </div> -->
+        </div>
+
+        <div id="Mission">
+            <h3>任务列表 : </h3>
+                <p id='deault' v-show='! list.length'>还没有添加任何任务</p>
+            <ul>
+                <!-- 绑定样式, 有 选中和编辑中 -->
+                <li class='lists' v-for="item in list" 
+                v-bind:class="{completed:item.isChecked,editing:item===editing}"  v-for="item in filteredList">
+                    <!-- 选择框双向绑定, 和外边的li联动 -->
+                    <input class='bigCKB' type="checkbox" name="" id="" v-model='item.isChecked'>
+                    <!-- 改 -->
+                    <label class='lab' for="" @dblClick="editTodo(item)">{{item.title}}</label>
+                    <!-- 删 -->
+                    <button class='destroy' @click="deleteTodo(item)">X</button>
+                    <!-- 编辑框(开始是隐藏的)|双向绑定值|自定义指令|失去焦点或按回车保存|按esc取消编辑 -->
+                    <input type="text" name="" id="" class='editIpt' 
+                    v-model="item.title"
+                    v-focus='editing===item'
+                    @blur='editDone(item)'
+                    @keyup.enter='editDone(item)'
+                    @keyup.esc='cancelEdit(item)'>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
