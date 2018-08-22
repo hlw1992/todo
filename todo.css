@@ -86,7 +86,7 @@ ul,ol,li{list-style: none;}
     height: 2em;
     line-height: 2em;
 }
-/* 双击编辑时,输入框显示 */
+/* 双击编辑,显示输入框 */
 .editing .editIpt{
     display: inline-block;
     width: 99%;

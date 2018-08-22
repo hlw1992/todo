@@ -60,6 +60,7 @@ var vm = new Vue({
             handler:function () {  
                 setgetLS.save('my_pc',this.list);
             },
+            //深度监控可以监控list第二层的属性 isChecked
             deep:true
         }
     },
@@ -128,7 +129,7 @@ var vm = new Vue({
             this.editing = '';
         }
     },
-    //自定义指令. 双击编辑获取焦点 对应html里的v-focus
+    //自定义指令. 双击编辑获取焦点 在html里使用 v-focus
     directives:{
         "focus":{   //自定义指令
             update(el,binding){
