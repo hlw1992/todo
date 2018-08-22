@@ -1,6 +1,6 @@
 //案例用localStorage保存数据
 //先封装方法
-var locs ={
+var setgetLS ={
     save(key,value){     //保存
         localStorage.setItem(key,JSON.stringify(value));
     },
@@ -8,8 +8,8 @@ var locs ={
         return JSON.parse(localStorage.getItem(key)) || [];
     }
 }
-//调用上面的方法 取值, 为了显示本地数据 localStorage
-var list = locs.fetch('my_pc');
+//localStorage取值
+var list = setgetLS.fetch('my_pc');
 
 //假数据, 为了前期测试样式和功能
 // var list=[
@@ -47,18 +47,18 @@ var vm = new Vue({
         list:list,
         editing:'',  //记录正在编辑的数据
         beforeEdit:'',  //记录正在编辑的数据 开始时的数据title
-        visibility: "all", //\new\通过这个属性值的变化对数据进行筛选
+        // visibility: "all", //\new\通过这个属性值的变化对数据进行筛选
         todo:"",
     },
     //监控  (深度监控可以监控list第二层的属性 isChecked)
     watch:{
         // list:function () {  //监控list属性
-        //     locs.save('my_pc',this.list);
+        //     setgetLS.save('my_pc',this.list);
         // }
         list:{
             //localStorage的 存
             handler:function () {  
-                locs.save('my_pc',this.list);
+                setgetLS.save('my_pc',this.list);
             },
             deep:true
         }
